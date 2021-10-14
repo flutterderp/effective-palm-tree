@@ -1,5 +1,8 @@
 <?php
-opcache_reset();
+if(function_exists('opcache_reset'))
+{
+  opcache_reset();
+}
 
 $utc_tz = new DateTimeZone('UTC');
 $today  = new DateTime(null, $utc_tz);
@@ -15,7 +18,7 @@ header('Last-Modified: ' . $today->format('r'));
     <title>Script Afar Single Bucket</title>
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wgth@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
       * { margin: 0; padding: 0; }
@@ -31,6 +34,7 @@ header('Last-Modified: ' . $today->format('r'));
       ul:first-child > li:first-child { margin-top: 0; }
       ul:first-child > li:last-child { margin-bottom: 0; }
 
+      .monospace { font-family: 'Source Code Pro', monospace; }
       .wrapper { margin: 0 auto; overflow: auto; width: 97vw; }
     </style>
   </head>
@@ -43,10 +47,12 @@ header('Last-Modified: ' . $today->format('r'));
         </li>
         <li>
           <b>HTTP:X-Forwarded-Proto:</b> <?php var_export(isset($_SERVER['HTTP:X-Forwarded-Proto'])); ?>
+          <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
           <?php echo isset($_SERVER['HTTP:X-Forwarded-Proto']) ? '<ul><li>value is <code>' . $_SERVER['HTTP:X-Forwarded-Proto'] . '</code></li></ul>' : ''; ?>
         </li>
         <li>
           <b>HTTP_CF_VISITOR:</b> <?php var_export(isset($_SERVER['HTTP_CF_VISITOR'])); ?>
+          <br><i>usually set if requests go through Cloudflare</i>
           <?php echo isset($_SERVER['HTTP_CF_VISITOR']) ? '<ul><li>value is <code>' . $_SERVER['HTTP_CF_VISITOR'] . '</code></li></ul>' : ''; ?>
         </li>
         <li>
@@ -55,7 +61,7 @@ header('Last-Modified: ' . $today->format('r'));
         </li>
       </ul>
 
-      <pre><?php print_r($_SERVER); ?></pre>
+      <pre><?php /* print_r($_SERVER); */ ?></pre>
     </main>
   </body>
 </html>
