@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Comparisons</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+      * { margin: 0; padding: 0; }
+      body { background: #fefefe; color: #0a0a0a; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: calc(22 / 16); }
+      a { color: #4b58d3; transition: 0.3s all; }
+      a:focus, a:hover { color: #212b87; }
+      h1, h2, h3 { font-weight: bold; }
+      h1 { font-size: 21px; line-height: calc(24 / 21); margin-bottom: 20px; }
+      h1 > a[id] { color: inherit; text-decoration: none dotted; }
+      h1 > a[id]:focus, h1 > a[id]:hover { color: #4b58d3; }
+      p { margin-bottom: 18px; }
+      section { margin: 20px auto; }
+
+      .hide { height: 0; opacity: 0; visibility: hidden; }
+      .red-text { color: #d34b58; }
+
+      .wrapper { margin: 2.5vh auto; width: 95vw; }
+      .montserrat { font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .sourcesans { font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .roboto { font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .nunito { font-family: Nunito, 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      .nunitosans { font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    </style>
+  </head>
+
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <main class="wrapper">
+      <section class="gotham">
+        <h1><a href="#" id="gotham">Gotham</a></h1>
+
+        <div data-group="gotham">
+          <p>We Are Excited for the Curtain to Rise Again for Our 43rd Season! You Can Support Charleston Stage During This Challenging Time. Please Consider a Tax Deductible Gift to Our "Curtain Up Fund".</p>
+          <p>Donec vehicula nisl ut est faucibus feugiat. Donec nisl leo, consectetur ut mi ac, gravida dapibus nisi. Aenean eu neque et est fringilla finibus. Donec non fermentum sapien. Nulla sit amet eros feugiat, congue nibh quis, lacinia dolor. Sed quis ante ut justo pharetra condimentum. Cras gravida augue at auctor tincidunt. Cras eu nisi id nibh condimentum sodales sit amet at lorem. Aliquam pulvinar, diam quis lacinia commodo, enim lacus dictum nunc, id mattis ante diam ut ex. Proin vel turpis erat. Donec sollicitudin pretium dignissim. Etiam eu lacus tellus. Proin imperdiet ante et nulla ultrices venenatis tincidunt in sem. Aliquam non quam scelerisque, tristique lorem ut, posuere ex.</p>
+          <p>Proin est dui, aliquet faucibus arcu malesuada, eleifend ornare massa. Aliquam sagittis faucibus nisl sed iaculis. Integer ut aliquet mi. Suspendisse quis urna ac enim sollicitudin varius id ac ante. Etiam eu pretium neque. Nunc ut pharetra nisl. Aenean finibus euismod accumsan. Aliquam ullamcorper rutrum ipsum, quis condimentum nisl consequat a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam faucibus odio ut nulla malesuada, et congue ante venenatis. Aliquam diam nisi, porta eget viverra accumsan, tincidunt sed odio. Curabitur diam nibh, elementum vel congue non, eleifend non neque. In dapibus velit non lobortis luctus. Quisque tincidunt nibh ut metus consequat pretium.</p>
+        </div>
+      </section>
+
+      <section class="montserrat">
+        <h1><a href="#" id="montserrat">Montserrat</a></h1>
+
+        <div class="hide" data-group="montserrat">
+          <p>We Are Excited for the Curtain to Rise Again for Our 43rd Season! You Can Support Charleston Stage During This Challenging Time. Please Consider a Tax Deductible Gift to Our "Curtain Up Fund".</p>
+          <p>Donec vehicula nisl ut est faucibus feugiat. Donec nisl leo, consectetur ut mi ac, gravida dapibus nisi. Aenean eu neque et est fringilla finibus. Donec non fermentum sapien. Nulla sit amet eros feugiat, congue nibh quis, lacinia dolor. Sed quis ante ut justo pharetra condimentum. Cras gravida augue at auctor tincidunt. Cras eu nisi id nibh condimentum sodales sit amet at lorem. Aliquam pulvinar, diam quis lacinia commodo, enim lacus dictum nunc, id mattis ante diam ut ex. Proin vel turpis erat. Donec sollicitudin pretium dignissim. Etiam eu lacus tellus. Proin imperdiet ante et nulla ultrices venenatis tincidunt in sem. Aliquam non quam scelerisque, tristique lorem ut, posuere ex.</p>
+          <p>Proin est dui, aliquet faucibus arcu malesuada, eleifend ornare massa. Aliquam sagittis faucibus nisl sed iaculis. Integer ut aliquet mi. Suspendisse quis urna ac enim sollicitudin varius id ac ante. Etiam eu pretium neque. Nunc ut pharetra nisl. Aenean finibus euismod accumsan. Aliquam ullamcorper rutrum ipsum, quis condimentum nisl consequat a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam faucibus odio ut nulla malesuada, et congue ante venenatis. Aliquam diam nisi, porta eget viverra accumsan, tincidunt sed odio. Curabitur diam nibh, elementum vel congue non, eleifend non neque. In dapibus velit non lobortis luctus. Quisque tincidunt nibh ut metus consequat pretium.</p>
+        </div>
+      </section>
+
+      <section class="roboto">
+        <h1><a href="#" id="roboto">Roboto</a></h1>
+
+        <div class="hide" data-group="roboto">
+          <p>Donec vehicula nisl ut est faucibus feugiat. Donec nisl leo, consectetur ut mi ac, gravida dapibus nisi. Aenean eu neque et est fringilla finibus. Donec non fermentum sapien. Nulla sit amet eros feugiat, congue nibh quis, lacinia dolor. Sed quis ante ut justo pharetra condimentum. Cras gravida augue at auctor tincidunt. Cras eu nisi id nibh condimentum sodales sit amet at lorem. Aliquam pulvinar, diam quis lacinia commodo, enim lacus dictum nunc, id mattis ante diam ut ex. Proin vel turpis erat. Donec sollicitudin pretium dignissim. Etiam eu lacus tellus. Proin imperdiet ante et nulla ultrices venenatis tincidunt in sem. Aliquam non quam scelerisque, tristique lorem ut, posuere ex.</p>
+          <p>Proin est dui, aliquet faucibus arcu malesuada, eleifend ornare massa. Aliquam sagittis faucibus nisl sed iaculis. Integer ut aliquet mi. Suspendisse quis urna ac enim sollicitudin varius id ac ante. Etiam eu pretium neque. Nunc ut pharetra nisl. Aenean finibus euismod accumsan. Aliquam ullamcorper rutrum ipsum, quis condimentum nisl consequat a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam faucibus odio ut nulla malesuada, et congue ante venenatis. Aliquam diam nisi, porta eget viverra accumsan, tincidunt sed odio. Curabitur diam nibh, elementum vel congue non, eleifend non neque. In dapibus velit non lobortis luctus. Quisque tincidunt nibh ut metus consequat pretium.</p>
+        </div>
+      </section>
+
+      <section class="sourcesans">
+        <h1><a href="#" id="sourcesans">Source Sans</a></h1>
+
+        <div class="hide" data-group="sourcesans">
+          <p>Donec vehicula nisl ut est faucibus feugiat. Donec nisl leo, consectetur ut mi ac, gravida dapibus nisi. Aenean eu neque et est fringilla finibus. Donec non fermentum sapien. Nulla sit amet eros feugiat, congue nibh quis, lacinia dolor. Sed quis ante ut justo pharetra condimentum. Cras gravida augue at auctor tincidunt. Cras eu nisi id nibh condimentum sodales sit amet at lorem. Aliquam pulvinar, diam quis lacinia commodo, enim lacus dictum nunc, id mattis ante diam ut ex. Proin vel turpis erat. Donec sollicitudin pretium dignissim. Etiam eu lacus tellus. Proin imperdiet ante et nulla ultrices venenatis tincidunt in sem. Aliquam non quam scelerisque, tristique lorem ut, posuere ex.</p>
+          <p>Proin est dui, aliquet faucibus arcu malesuada, eleifend ornare massa. Aliquam sagittis faucibus nisl sed iaculis. Integer ut aliquet mi. Suspendisse quis urna ac enim sollicitudin varius id ac ante. Etiam eu pretium neque. Nunc ut pharetra nisl. Aenean finibus euismod accumsan. Aliquam ullamcorper rutrum ipsum, quis condimentum nisl consequat a. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam faucibus odio ut nulla malesuada, et congue ante venenatis. Aliquam diam nisi, porta eget viverra accumsan, tincidunt sed odio. Curabitur diam nibh, elementum vel congue non, eleifend non neque. In dapibus velit non lobortis luctus. Quisque tincidunt nibh ut metus consequat pretium.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) {
+        let headings    = document.querySelectorAll('h1 > a[id]'),
+            data_groups = []
+
+        headings.forEach(h => {
+          data_groups[h.id] = document.querySelector('div[data-group="'+h.id+'"]')
+
+          h.addEventListener('click', function(e) { toggleVisibility(this, e) } )
+          h.addEventListener('touch', function(e) { toggleVisibility(this, e) } )
+        })
+
+        function toggleVisibility(active, e) {
+          if(active.id === 'gotham') {
+            return false
+          }
+
+          e.preventDefault()
+          e.stopPropagation()
+
+          let el = data_groups[active.id]
+
+          el.classList.toggle('hide')
+          active.blur()
+        }
+      })
+    </script>
+  </body>
+</html>

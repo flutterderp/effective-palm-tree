@@ -1,0 +1,42 @@
+:root {
+  --blue-gradient: linear-gradient(90deg, rgba(0,84,197,1) 0%, rgba(110,156,222,1) 50%, rgba(0,84,197,1) 100%);
+  --blue-gradient-base: rgb(0,84,197);
+  --red-gradient: linear-gradient(90deg, rgba(230,40,49,1) 0%, rgba(236,94,101,1) 50%, rgba(230,40,49,1) 100%);
+  --red-gradient-base: rgb(230,40,49);
+  --sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.blue { color: #0d65fc; }
+.darker-blue { color: #0245b8; }
+.green { color: #03f724; }
+.yellow { color: #f7ef03; }
+.red { color: #de2003; }
+
+/* brands */
+a.brand { color: #0a0a0a; }
+a.brand__facebook:is(:focus, :hover) { color: #4267b2; }
+a.brand__twitter:is(:focus, :hover) { color: #1da1f2; }
+a.brand__youtube:is(:focus, :hover) { color: #f00; }
+/* end brands */
+
+/* .infoblocks { } */
+.article-gallery.grid-container, .infoblocks.grid-container { padding-left: 0; padding-right: 0; }
+.article-gallery .grid-x, .infoblocks .grid-x { align-items: center; /* background: #fefefe; */ }
+.infoblock__text.cell { padding: 32px 40px; /* padding-left: 40px; padding-right: 40px; */ }
+.infoblock__image.cell { align-self: stretch; padding-left: 0; padding-right: 0; }
+.article-gallery .cell img, .infoblock__image img { display: block; height: 100%; object-fit: cover; object-position: center; width: 100%; }
+.infoblocks h2, .infoblocks h3, .infoblocks p { margin: 0 0 8px; }
+.infoblocks h2 { font-family: var(--sans-serif); font-size: 17px; font-weight: normal; line-height: normal; text-transform: uppercase; }
+.infoblocks h3 { font-family: var(--sans-serif); font-size: 15px; font-weight: bold; line-height: normal; }
+
+.article-gallery .grid-x { align-items: stretch; padding: 20px 0 0; }
+.article-gallery .cell { margin-bottom: 20px; padding: 0 10px 0; }
+
+@media screen and (max-width: 39.938em) {
+  .article-gallery .cell:nth-child(2n) { padding-right: 0; }
+  .article-gallery .cell:is(:first-child, :nth-child(n+2)) { padding-left: 0; }
+}
+@media screen and (min-width: 40em) {
+  .article-gallery .cell:nth-child(3n) { padding-right: 0; }
+  .article-gallery .cell:is(:first-child, :nth-child(3n+1)) { padding-left: 0; }
+}

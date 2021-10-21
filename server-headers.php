@@ -46,6 +46,16 @@ header('Last-Modified: ' . $today->format('r'));
           <?php echo isset($_SERVER['HTTPS']) ? '<ul><li>value is <code>' . $_SERVER['HTTPS'] . '</code></li></ul>' : ''; ?>
         </li>
         <li>
+          <b>HTTP_X_REAL_IP:</b> <?php var_export(isset($_SERVER['HTTP_X_REAL_IP'])); ?>
+          <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
+          <?php echo isset($_SERVER['HTTP_X_REAL_IP']) ? '<ul><li>value is <code>' . $_SERVER['HTTP_X_REAL_IP'] . '</code></li></ul>' : ''; ?>
+        </li>
+        <li>
+          <b>HTTP_X_FORWARDED_FOR:</b> <?php var_export(isset($_SERVER['HTTP_X_FORWARDED_FOR'])); ?>
+          <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
+          <?php echo isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? '<ul><li>value is <code>' . $_SERVER['HTTP_X_FORWARDED_FOR'] . '</code></li></ul>' : ''; ?>
+        </li>
+        <li>
           <b>HTTP:X-Forwarded-Proto:</b> <?php var_export(isset($_SERVER['HTTP:X-Forwarded-Proto'])); ?>
           <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
           <?php echo isset($_SERVER['HTTP:X-Forwarded-Proto']) ? '<ul><li>value is <code>' . $_SERVER['HTTP:X-Forwarded-Proto'] . '</code></li></ul>' : ''; ?>
