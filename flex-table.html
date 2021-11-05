@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://fonts.googleapis.com"rel="preconnect">
+<link href="https://fonts.gstatic.com"rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+* { margin: 0; padding: 0; }
+body { background: #fefefe; color: #0a0a0a; font-family: 'Work Sans', 'Helvetica Neue', Helvetica, Aria, sans-serif; font-size: 100%; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+table {
+  border: 1px solid #0a0a0a;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #0a0a0a;
+  line-height: normal;
+  padding: 10px 12px;
+}
+
+.flextable {
+  margin: 36px auto;
+}
+
+.flextable__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flextable__row {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  margin: 0 auto -1px;
+}
+.flextable__row:last-child { margin-bottom: 0; }
+
+.flextable__th, .flextable__td {
+  align-items: center;
+  border: 1px solid #0a0a0a;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: 0 1 calc(100% / 6);
+  justify-content: center;
+  line-height: normal;
+  padding: 10px 12px;
+}
+.flextable__th:not(:first-child), .flextable__td:not(:first-child) { border-left-width: 0; }
+
+.flextable__th h2 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: inherit;
+}
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th class="text-center">Baked-in</th>
+          <th class="text-center">30/60 sec</th>
+          <th class="text-center">Title</th>
+          <th class="text-center">Intro</th>
+          <th class="text-center">Outro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nam porta lobortis ex. Sed vel sem.</td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><select><option value="30">30s</option><option value="60">60s</option></select></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+        </tr>
+        <tr>
+          <td>Aliquam ultrices sed odio ut congue. Integer.</td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><select><option value="30">30s</option><option value="60">60s</option></select></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+        </tr>
+        <tr>
+          <td>Maecenas vehicula elit tortor, et pharetra quam.</td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><select><option value="30">30s</option><option value="60">60s</option></select></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+          <td class="text-center"><input type="checkbox" value="1"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Attempting to create a responsive “table” using flexbox… (inspired by <a href="https://css-tricks.com/accessible-simple-responsive-tables/" target="_blank" rel="noopener">Accessible, Simple, Responsive Tables</a>)</p>
+
+    <div class="flextable" role="table">
+      <div class="flextable__row" role="row">
+        <div class="flextable__th" role="columnheader"></div>
+        <div class="flextable__th" role="columnheader"><h2>Baked-in</h2></div>
+        <div class="flextable__th" role="columnheader"><h2>30/60 sec</h2></div>
+        <div class="flextable__th" role="columnheader"><h2>Title</h2></div>
+        <div class="flextable__th" role="columnheader"><h2>Intro</h2></div>
+        <div class="flextable__th" role="columnheader"><h2>Outro</h2></div>
+      </div>
+      <div class="flextable__row" role="row">
+        <div class="flextable__td" role="cell">Nam porta lobortis ex. Sed vel sem.</div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><select><option value="30">30s</option><option value="60">60s</option></select></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+      </div>
+      <div class="flextable__row" role="row">
+        <div class="flextable__td" role="cell">Aliquam ultrices sed odio ut congue. Integer.</div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><select><option value="30">30s</option><option value="60">60s</option></select></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+      </div>
+      <div class="flextable__row" role="row">
+        <div class="flextable__td" role="cell">Maecenas vehicula elit tortor, et pharetra quam.</div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><select><option value="30">30s</option><option value="60">60s</option></select></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+        <div class="flextable__td" role="cell"><input type="checkbox" value="1"></div>
+      </div>
+    </div>
+  </body>
+</html>

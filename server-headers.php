@@ -23,6 +23,7 @@ header('Last-Modified: ' . $today->format('r'));
     <style>
       * { margin: 0; padding: 0; }
       html { font-family: 'Source Serif Pro', Georgia, 'Times New Roman', Times, serif; font-size: 100%; line-height: normal; }
+      html, body { background: #fefefe; color: #0a0a0a; }
 
       code, pre { background: #fafafa; border: 1px solid #aaa; border-radius: 3px; color: #0a0a0a; font-family: 'Source Code Pro', monospace; }
       code { display: inline-block; padding: 4px 8px; }
@@ -36,6 +37,11 @@ header('Last-Modified: ' . $today->format('r'));
 
       .monospace { font-family: 'Source Code Pro', monospace; }
       .wrapper { margin: 0 auto; overflow: auto; width: 97vw; }
+
+      @media (prefers-color-scheme: dark) {
+        html, body { background: #333; color: #fefefe; }
+        code, pre { background: #555; border-color: #555; color: #fefefe; }
+      }
     </style>
   </head>
   <body>
@@ -59,6 +65,11 @@ header('Last-Modified: ' . $today->format('r'));
           <b>HTTP:X-Forwarded-Proto:</b> <?php var_export(isset($_SERVER['HTTP:X-Forwarded-Proto'])); ?>
           <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
           <?php echo isset($_SERVER['HTTP:X-Forwarded-Proto']) ? '<ul><li>value is <code>' . $_SERVER['HTTP:X-Forwarded-Proto'] . '</code></li></ul>' : ''; ?>
+        </li>
+        <li>
+          <b>HTTP_X_FORWARDED_PROTO:</b> <?php var_export(isset($_SERVER['HTTP_X_FORWARDED_PROTO'])); ?>
+          <br><i>usually set if requests go through a proxy or firewall (e.g. Sucuri)</i>
+          <?php echo isset($_SERVER['HTTP_X_FORWARDED_PROTO']) ? '<ul><li>value is <code>' . $_SERVER['HTTP_X_FORWARDED_PROTO'] . '</code></li></ul>' : ''; ?>
         </li>
         <li>
           <b>HTTP_CF_VISITOR:</b> <?php var_export(isset($_SERVER['HTTP_CF_VISITOR'])); ?>
