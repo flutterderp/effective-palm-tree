@@ -133,8 +133,22 @@ catch(Exception $e)
 try
 {
 	$sendStatus = $invoice->send($apiContext);
+	$invoice    = Invoice::get($invoice->getId(), $apiContext);
 
 	ResultPrinter::printResult('Send Invoice', 'Invoice', $invoice->getId(), null, null);
+
+	?>
+	<p>
+		<b>Status:</b> <?php echo $invoice->getStatus(); ?><br>
+		<b>Invoice URL:</b> <?php echo $invoice->metadata->getPayerViewUrl(); ?><br>
+	</p>
+
+	<div class="row hidden-xs hidden-sm hidden-md">
+		<div class="col-md-6">
+			<pre class="prettyprint "><?php echo $invoice->toJSON(128); ?></pre>
+		</div>
+	</div>
+	<?php
 }
 catch(Exception $e)
 {
