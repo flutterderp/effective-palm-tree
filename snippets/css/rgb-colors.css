@@ -22,6 +22,26 @@ a.brand__youtube:is(:focus, :hover) { color: #f00; }
 a.brand__linkedin:is(:focus, :hover) { color: #0077b5; }
 /* end brands */
 
+/* lined headings */
+.lined {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  text-align: center;
+}
+.lined::before, .lined::after {
+  background: #c61b21;
+  content: '';
+  height: 2px;
+  flex: 0 1 calc((100% / 3));
+  margin: 0;
+  top: unset;
+  width: unset;
+}
+/* .lined::after { margin-left: 20px; } */
+/* .lined::before { margin-right: 20px; } */
+
 /* rotated text block */
 .vertical-text {
   transform: rotate(-180deg);
