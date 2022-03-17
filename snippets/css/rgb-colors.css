@@ -48,6 +48,14 @@ a.brand__linkedin:is(:focus, :hover) { color: #0077b5; }
   writing-mode: vertical-lr;
 }
 
+/* random table styles */
+thead, tbody, tfoot { background-color: #fefefe; border: 1px solid #0a0a0a; }
+tbody tr { border-bottom: 1px solid #0a0a0a; }
+tbody tr:nth-child(even), tbody tr:nth-child(odd):first-child { background-color: inherit; border-bottom: inherit; }
+td[rowspan], th[rowspan] { border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid; }
+.striped thead, .striped tbody, .striped tfoot { background-color: #fefefe; border: 1px solid #f1f1f1; }
+.striped tbody tr:nth-child(even) { background-color: #f1f1f1; border-bottom: 0; }
+
 /* .infoblocks { } */
 .article-gallery.grid-container, .infoblocks.grid-container { padding-left: 0; padding-right: 0; }
 .article-gallery .grid-x, .infoblocks .grid-x { align-items: center; /* background: #fefefe; */ }
