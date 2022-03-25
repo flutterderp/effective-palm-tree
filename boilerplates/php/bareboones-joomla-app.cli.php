@@ -18,14 +18,14 @@ require_once(JPATH_BASE . '/includes/framework.php');
 if(Version::MAJOR_VERSION === 4)
 {
 	$container = Factory::getContainer();
-	$container->alias('session.web', 'session.web.site')
-		->alias('session', 'session.web.site')
-		->alias('JSession', 'session.web.site')
-		->alias(\Joomla\CMS\Session\Session::class, 'session.web.site')
-		->alias(\Joomla\Session\Session::class, 'session.web.site')
-		->alias(\Joomla\Session\SessionInterface::class, 'session.web.site');
+	$container->alias('session', 'session.cli')
+		->alias('JSession', 'session.cli')
+		->alias(\Joomla\CMS\Session\Session::class, 'session.cli')
+		->alias(\Joomla\Session\Session::class, 'session.cli')
+		->alias(\Joomla\Session\SessionInterface::class, 'session.cli');
 
-	$app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
+	$app = $container->get(\Joomla\Console\Application::class);
+	Factory::$application = $app;
 }
 else
 {
