@@ -1,0 +1,29 @@
+/* reference/inspiration: https://css-tricks.com/adaptive-photo-layout-with-flexbox/ */
+/* .gallery__photos { align-items: flex-start; background: #000; display: flex; flex-wrap: wrap; gap: 2px; justify-content: flex-start; }
+.gallery__photos::after { content: ''; display: block; flex-grow: 10; }
+.gallery__photo { flex: 1 0 calc((100% - 6px) / 3); height: 40vh; }
+.gallery__photo > img { display: block; object-fit: cover; object-position: center; max-height: 100%; min-width: 100%; } */
+
+/* flexbox gallery, alternating 2/3 width photo */
+.gallery__photos { align-items: flex-start; background: #000; display: flex; flex-wrap: wrap; gap: 2px; justify-content: flex-start; }
+.gallery__photos.two-thirds > .gallery__photo:first-child, .gallery__photos.two-thirds > .gallery__photo:nth-child(4n),
+  .gallery__photos.two-thirds > .gallery__photo:nth-child(4n+1) { flex: 1 0 calc(100% * (0.667)); }
+.gallery__photo { flex: 1 0 calc(100% * 0.33); height: 80vh; max-height: 800px; min-height: 360px; }
+.gallery__photo > img { display: block; height: 100%; min-width: 100%; object-fit: cover; object-position: center; }
+.gallery__photos::after { content: ''; display: block; flex: 1 0 calc(100% * 0.33); }
+
+@media screen and (max-width: 499px) {
+  .gallery__photo, .gallery__photo.gallery__photos.two-thirds > .gallery__photo:first-child, .gallery__photos.two-thirds > .gallery__photo:nth-child(4n), .gallery__photos.two-thirds > .gallery__photo:nth-child(4n+1) { flex: 1 0 auto; }
+  .gallery__photos::after { content: none; }
+  .gallery__photo { height: auto; max-height: unset; min-height: unset; width: 100%; }
+}
+
+@media screen and (min-width: 500px) and (max-width: 699px) {
+  .gallery__photo, .gallery__photo.gallery__photos.two-thirds > .gallery__photo:first-child, .gallery__photos.two-thirds > .gallery__photo:nth-child(4n), .gallery__photos.two-thirds > .gallery__photo:nth-child(4n+1) { flex: 0 1 calc((100% - 2px) / 2); }
+  .gallery__photos::after { flex: 0 1 calc((100% - 2px) / 2); }
+  .gallery__photo { height: 40vh; max-height: 360px; min-height: 200px; }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1023px) {
+  .gallery__photo { height: 50vh; max-height: 400px; min-height: 300px; }
+}
