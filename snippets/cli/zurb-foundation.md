@@ -1,11 +1,11 @@
 # Clone and build a Foundation starter template
 
 ```sh
-git clone https://github.com/foundation/foundation-sites-template.git ./suites
+git clone https://github.com/foundation/foundation-sites-template.git ./project_name
 ```
 
 ```sh
-cd suites
+cd project_name
 ```
 
 ```sh
