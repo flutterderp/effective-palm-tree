@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box Collage</title>
+  <style>
+    /* https://css-tricks.com/adaptive-photo-layout-with-flexbox/ */
+    * { margin: 0; padding: 0; }
+    body { background: #0a0a0a; color: #fefefe; }
+    /* ul.gallery { display: flex; flex-wrap: wrap; list-style: none; padding: 1px; }
+    .gallery li { height: 24vh; flex-grow: 1; margin: 1px; }
+    .gallery li:last-child::after { content: ''; display: block; flex-grow: 10; }
+    .gallery figure { display: inline; height: auto; width: auto; }
+    .gallery img { max-height: 100%; min-width: 100%; object-fit: cover; vertical-align: bottom; } */
+
+    /* https://masonry.desandro.com/ */
+    /* CSS masonry in proposal stage at the moment */
+    /* https://fjolt.com/article/css-grid-masonry#creating-masonry-with-css-masonry */
+    /* .masonry__container { align-tracks: start; display: grid; grid-template-columns: 20% 20% 20% 20%; grid-template-rows: masonry; justify-tracks: start; } */
+
+    .masonry__container { background: #262626; border: 0 solid #262626; border-left-width: 2px; border-top-width: 2px; position: relative; }
+    .masonry__item, .masonry__sizer { width: calc((100% / 4) - 2px); }
+    .masonry__item { border-radius: 0; margin: 0 0 2px 0; }
+    .masonry__item * { border-radius: inherit; }
+    .masonry__item img { display: block; height: auto; width: 100%; }
+
+    /* div.gallery { display: flex; flex-wrap: wrap; gap: 3px; list-style: none; padding: 0; }
+    .gallery div { height: 24vh; flex-grow: 1; margin: 0; min-height: 200px; }
+    .gallery div:last-child::after { content: ''; display: block; flex-grow: 10; }
+    .gallery figure { display: flex; height: 100%; width: auto; }
+    .gallery img { display: block; height: inherit; max-height: 100%; min-width: 100%; object-fit: cover; object-position: center; width: inherit; } */
+
+  </style>
+  </head>
+  <body>
+    <div class="masonry__container" id="masonry__container">
+      <div class="masonry__sizer"></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/1024/683"></figure></div>
+
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+      <div class="masonry__item"><figure><img src="https://placekitten.com/683/1024"></figure></div>
+    </div>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        let container = document.querySelector('.masonry__container')
+            msnry = new Masonry(container, {
+              fitWidth: false,
+              gutter: 2,
+              itemSelector: '.masonry__item',
+              columnWidth: '.masonry__sizer',
+              percentPosition: true
+            })
+      })
+    </script>
+  </body>
+</html>
