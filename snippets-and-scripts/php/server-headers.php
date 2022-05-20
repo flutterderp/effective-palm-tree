@@ -48,6 +48,10 @@ header('Last-Modified: ' . $today->format('r'));
     <main class="wrapper">
       <ul>
         <li>
+          <?php $gzip_status = (bool) ini_get('zlib.output_compression'); ?>
+          <b>gzip status:</b> <?php var_export($gzip_status); ?>
+        </li>
+        <li>
           <b>HTTPS:</b> <?php var_export(isset($_SERVER['HTTPS'])); ?>
           <?php echo isset($_SERVER['HTTPS']) ? '<ul><li>value is <code>' . $_SERVER['HTTPS'] . '</code></li></ul>' : ''; ?>
         </li>

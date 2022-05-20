@@ -1,0 +1,21 @@
+.videowrapper { height: 0; padding: 56.25% 0 25px 0; position: relative; }
+.videowrapper embed, .videowrapper iframe, .videowrapper object { height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+
+/* Possible alternative */
+/**
+ * The main magic is in the before and after pseudo elements. The positioning on the wrapper
+ * and its children is just to make sure the video is sized to our 16:9 ratio.
+ * Useful/related links:
+ * https://css-tricks.com/aspect-ratio-boxes/
+ */
+.videowrapper { /* background styles, etc. */ border: 1px solid #554832; margin: 0 auto 36px; position: relative; }
+.videowrapper::before, .videowrapper:before { content: ''; float: left; margin-left: -1px; padding: 56.25% 0 0 0; width: 1px; }
+.videowrapper::after, .videowrapper:after { clear: both; content: ''; display: table; }
+.videowrapper embed, .videowrapper iframe, .videowrapper object { border: 0; height: 99%; margin: 0; max-width: unset; position: absolute; width: 100%; }
+
+.squarephoto { margin: 0 auto; position: relative; }
+.squarephoto::before, .squarephoto:before { content: ''; float: left; margin-left: -1px; padding: 100% 0 0 0; width: 1px; }
+.squarephoto.ar16-9::before, .squarephoto.ar16-9:before { padding: calc(100% * 0.5625) 0 0 0; }
+.squarephoto::after, .squarephoto:after { clear: both; content: ''; display: table; }
+.squarephoto img { border: 0; height: 100%; margin: 0; max-width: unset; object-fit: cover; object-position: center; position: absolute; top: 0; width: 100%; }
+/* .squarephoto.ar16-9 img { } */

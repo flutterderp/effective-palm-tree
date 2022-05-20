@@ -20,6 +20,7 @@
     .gallery figure { display: flex; height: 100%; width: auto; }
     /* .gallery figure > a { display: block; height: 100%; width: 100%; } */
     .gallery img { display: block; height: inherit; max-height: 100%; min-width: 100%; object-fit: cover; object-position: center; width: inherit; }
+    .gallery::after { content: ''; display: block; flex: 1 0 auto; height: 24vh; margin: 0; min-height: 200px; }
 
     /* @media screen and (max-width: 319px) {
       .gallery div { height: 140px; }
