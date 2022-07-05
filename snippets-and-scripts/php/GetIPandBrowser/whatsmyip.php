@@ -4,8 +4,13 @@ if(function_exists('opcache_reset'))
   opcache_reset();
 }
 
+use Sinergi\BrowserDetector\Browser;
+
+require_once('PATH/TO/BROWSER-DETECTOR/vendor/autoload.php');
+
 $utc_tz    = new DateTimeZone('UTC');
 $today     = new DateTime(null, $utc_tz);
+$browser   = new Browser();
 $client_ip = '';
 
 header('Cache-Control: no-store, max-age=0');
@@ -29,7 +34,7 @@ switch(true)
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's My IP Address?</title>
+    <title>What's My IP Address and Browser Version?</title>
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wgth@400;700&family=Source+Sans+Pro:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
@@ -41,7 +46,7 @@ switch(true)
 
       code, pre { background: #fafafa; border: 1px solid #aaa; border-radius: 3px; color: #0a0a0a; font-family: 'Source Code Pro', monospace; }
       code { display: inline-block; padding: 4px 8px; }
-			p { margin: 20px auto; }
+      p { margin: 20px auto; }
       pre { margin: 20px auto; overflow-x: scroll; padding: 14px 16px; }
 
       ul { margin: 20px auto; padding: 0 0 0 30px; }
@@ -61,13 +66,14 @@ switch(true)
   </head>
   <body>
     <main class="wrapper">
-			<p>As best as we could tell:</p>
-			<ul>
-				<li>Your IP address is: <code><?php echo $client_ip; ?></code></li>
-				<!-- <li>Your user agent is: <code><?php echo $_SERVER['HTTP_USER_AGENT']; ?></code></li> -->
-			</ul>
+      <p>As best as we could tell:</p>
+      <ul>
+        <li>Your IP address is: <code><?php echo $client_ip; ?></code></li>
+        <!-- <li>Your user agent is: <code><?php echo $_SERVER['HTTP_USER_AGENT']; ?></code></li> -->
+        <li>Your browser is: <code><?php echo $browser->getName() . ' ' . $browser->getVersion(); ?></code></li>
+      </ul>
 
-			<!-- <pre><?php /* print_r($_SERVER); */ ?></pre> -->
+      <!-- <pre><?php /* print_r($_SERVER); */ ?></pre> -->
     </main>
   </body>
 </html>

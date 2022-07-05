@@ -52,6 +52,14 @@ header('Last-Modified: ' . $today->format('r'));
           <b>gzip status:</b> <?php var_export($gzip_status); ?>
         </li>
         <li>
+          <?php $mct_status = (bool) function_exists('mime_content_type'); ?>
+          <b>mime_content_type enabled:</b> <?php var_export($mct_status); ?>
+        </li>
+        <li>
+          <?php $finfo_status = (bool) function_exists('finfo_open'); ?>
+          <b>finfo_open enabled:</b> <?php var_export($finfo_status); ?>
+        </li>
+        <li>
           <b>HTTPS:</b> <?php var_export(isset($_SERVER['HTTPS'])); ?>
           <?php echo isset($_SERVER['HTTPS']) ? '<ul><li>value is <code>' . $_SERVER['HTTPS'] . '</code></li></ul>' : ''; ?>
         </li>
