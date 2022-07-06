@@ -17,6 +17,7 @@ require_once(JPATH_BASE . '/includes/framework.php');
 
 if(Version::MAJOR_VERSION === 4)
 {
+	// swap session.web.site for session.web.administrator for admin apps
 	$container = Factory::getContainer();
 	$container->alias('session.web', 'session.web.site')
 		->alias('session', 'session.web.site')
@@ -26,6 +27,7 @@ if(Version::MAJOR_VERSION === 4)
 		->alias(\Joomla\Session\SessionInterface::class, 'session.web.site');
 
 	$app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
+	// $app = $container->get(\Joomla\CMS\Application\AdministratorApplication::class);
 }
 else
 {
