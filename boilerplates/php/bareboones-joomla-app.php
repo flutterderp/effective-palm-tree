@@ -28,6 +28,11 @@ if(Version::MAJOR_VERSION === 4)
 
 	$app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
 	// $app = $container->get(\Joomla\CMS\Application\AdministratorApplication::class);
+	$app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
+	$app->loadLanguage(); /* allows modules to render */
+
+	// Set the application as global app
+	Factory::$application = $app;
 }
 else
 {

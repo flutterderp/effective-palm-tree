@@ -25,6 +25,10 @@ if(Version::MAJOR_VERSION === 4)
 		->alias(\Joomla\Session\SessionInterface::class, 'session.cli');
 
 	$app = $container->get(\Joomla\Console\Application::class);
+	$app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
+	$app->loadLanguage(); /* allows modules to render */
+
+	// Set the application as global app
 	Factory::$application = $app;
 }
 else
