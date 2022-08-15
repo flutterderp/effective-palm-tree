@@ -13,6 +13,14 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html
 ```
 
+# Disable mod_security (if necessary)
+```sh
+<IfModule mod_security.c>
+  # SecFilterEngine Off
+  SecFilterScanPOST Off
+</IfModule>
+```
+
 # ???
 ```sh
 RewriteEngine On
