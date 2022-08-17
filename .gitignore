@@ -1,4 +1,5 @@
 client_secret_*.json
+composer.lock
 composer.phar
 vendor/
 
