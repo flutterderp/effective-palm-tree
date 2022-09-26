@@ -42,5 +42,5 @@ $page = new Pagination($total_rows, $limitstart, $limit);
 //Display pagination where desired
 /* <p>Page: <?php echo '' . $page->pagesCurrent . ' / ' . $page->pagesTotal; ?><br><?php echo $page->getLimitBox(); ?></p> */
 echo $page->getResultsCounter();
-echo $page->getPaginationLinks();
+echo $page->getPaginationLinks('joomla.pagination.links', array('showLimitBox' => false));
 // echo $page->getPaginationLinks('joomla.pagination.list');
