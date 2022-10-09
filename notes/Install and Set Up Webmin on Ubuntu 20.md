@@ -49,6 +49,22 @@
 7. Test the configuration: `sudo apache2ctl configtest`
 8. Restart Apache: `sudo systemctl restart apache2`
 
+## Installing MariaDB
+1. Run `sudo apt update`
+2. Run `sudo apt install mariadb-server`
+3. Run `sudo mysql_secure_installation`
+4. Test MariaDB
+    * `sudo systemctl status mariadb`
+5. Managing the database server
+    * `sudo systemctl start mariadb`
+
+## Installing PHP 8.1
+1. Run `sudo apt update`
+2. Run `sudo apt-get install --no-install-recommends php8.1`
+3. Check PHP version information with `php -v`
+4. Install additional modules using a command similar to `sudo apt-get install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath`
+5. List all loaded modules with `php -m`
+
 ## Installing Webmin
 1. Run `sudo apt update`
 2. Add the Webmin repository to the source list
@@ -64,8 +80,9 @@
     1. `sudo ufw allow 10000`
 
 ## Resources
-* [How To Install Webmin on Ubuntu 20.04 – DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-webmin-on-ubuntu-20-04)
+* ~~[How To Install Webmin on Ubuntu 20.04 – DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-webmin-on-ubuntu-20-04)~~
 * [Initial Server Setup with Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04)
 * [How To Install the Apache Web Server on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-20-04)
 * [UFW Essentials: Common Firewall Rules and Commands](https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands)
- 
+* [How To Install MariaDB on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-22-04)
+* [How To Install PHP 8.1 and Set Up a Local Development Environment on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-php-8-1-and-set-up-a-local-development-environment-on-ubuntu-22-04)
