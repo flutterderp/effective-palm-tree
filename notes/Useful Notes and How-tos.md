@@ -1,5 +1,9 @@
 # Useful Notes and How-tos
 
+## Page screenshot generators
+* https://websitemockupgenerator.com/
+* https://www.page2images.com/
+
 ## Add users to your PayPal account
 
 ***Can only be used with business accounts.***
