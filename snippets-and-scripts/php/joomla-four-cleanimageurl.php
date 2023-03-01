@@ -11,13 +11,14 @@ if(Version::MAJOR_VERSION === 4)
 // Use the cleaned image URL
 if(Version::MAJOR_VERSION === 4)
 {
-	$has_image = ($this->item->image->url && file_exists(JPATH_BASE . '/' . $this->item->image->url)) ? true : false;
-	$img_url   = $this->item->image->url;
-	$img_size  = ($has_image === true) ? getimagesize($this->item->image->url) : array();
+	$item->image = HTMLHelper::cleanImageUrl($item->image);
+	$has_image   = ($item->image->url && file_exists(JPATH_BASE . '/' . urldecode($item->image->url))) ? true : false;
+	$img_url     = $item->image->url;
+	$img_size    = ($has_image === true) ? getimagesize($item->image->url) : array();
 }
 else
 {
-	$has_image = ($this->item->image && file_exists(JPATH_BASE . '/' . $this->item->image)) ? true : false;
-	$img_url   = $this->item->image;
-	$img_size  = ($has_image === true) ? getimagesize($this->item->image) : array();
+	$has_image = ($item->image && file_exists(JPATH_BASE . '/' . $item->image)) ? true : false;
+	$img_url   = $item->image;
+	$img_size  = ($has_image === true) ? getimagesize($item->image) : array();
 }
