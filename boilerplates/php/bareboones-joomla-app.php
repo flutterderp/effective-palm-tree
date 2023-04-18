@@ -43,6 +43,11 @@ else
 /* Joomla\CMS\Plugin\PluginHelper::importPlugin('authentication');
 Joomla\CMS\Plugin\PluginHelper::importPlugin('user');
 Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
+
+/* example of loading a plugin in J4 */
+/* Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'seoconfig');
+$app->triggerEvent('onAfterRoute', array()); */
+
 $db       = Factory::getDbo();
 $session  = Factory::getSession();
 $user     = Factory::getUser();
