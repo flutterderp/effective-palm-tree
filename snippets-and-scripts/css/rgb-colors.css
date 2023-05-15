@@ -2,6 +2,7 @@
   --blue-gradient: linear-gradient(90deg, rgba(0,84,197,1) 0%, rgba(110,156,222,1) 50%, rgba(0,84,197,1) 100%);
   --blue-gradient-base: rgb(0,84,197);
   --instagram-gradient: linear-gradient(90deg, rgba(240,0,15,1) 0%, rgba(196,0,146,1) 100%);
+  --instagram-radial: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285aeb 90%);
   --red-gradient: linear-gradient(90deg, rgba(230,40,49,1) 0%, rgba(236,94,101,1) 50%, rgba(230,40,49,1) 100%);
   --red-gradient-base: rgb(230,40,49);
   --sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -16,6 +17,7 @@
 /* brands */
 a.brand { color: #0a0a0a; }
 a.brand__facebook:is(:focus, :hover) { color: #4267b2; }
+a.brand__instagram { background: #f0000f; background: var(--instagram-radial); }
 a.brand__instagram:is(:focus, :hover) { color: #f0000f; padding: 8px 9px; }
 a.brand__twitter:is(:focus, :hover) { color: #1da1f2; }
 a.brand__youtube:is(:focus, :hover) { color: #f00; }
