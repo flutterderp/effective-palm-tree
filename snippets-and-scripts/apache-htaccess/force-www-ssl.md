@@ -22,6 +22,13 @@ RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^(.*)$ http://www\.%{HTTP_HOST}%{REQUEST_URI} [L,R=302]
 ```
 
+# Force non-‘www’
+```sh
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [L,R=302]
+``````
+
 # Force ‘www’ and https in one step
 ## Comment out the response headers that don't apply to your project/site
 ```sh

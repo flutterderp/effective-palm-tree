@@ -13,27 +13,27 @@ $limitstart = $app->getUserStateFromRequest('$option.limitstart', 'limitstart', 
 
 try
 {
-  //Get a total count and instantiate Pagination
-  $query->select('COUNT(*)')->from( $db->qn('#__table_name'))->where('something = 1');
+	//Get a total count and instantiate Pagination
+	$query->select('COUNT(*)')->from( $db->qn('#__table_name'))->where('something = 1');
 
-  $db->setQuery($query);
-  $total_rows = (int) $db->loadResult();
+	$db->setQuery($query);
+	$total_rows = (int) $db->loadResult();
 
-  // Use $limitstart and $limit in the query that actually fetches your items
-  $query->clear();
+	// Use $limitstart and $limit in the query that actually fetches your items
+	$query->clear();
 	$query->select('*')->from($db->qn('#__table_name'))->where('something = 1');
 	// $query->setLimit($limit, $limitstart);
 
-  $db->setQuery($query, $limitstart, $limit);
-  // $db->execute();
-  // $found = $db->getNumRows();
-  $rows  = $db->loadObjectList();
+	$db->setQuery($query, $limitstart, $limit);
+	// $db->execute();
+	// $found = $db->getNumRows();
+	$rows  = $db->loadObjectList();
 }
 catch(Exception $e)
 {
-  $total_rows = 0;
-  // $found      = 0;
-  $rows       = false;
+	$total_rows = 0;
+	// $found      = 0;
+	$rows       = false;
 }
 
 $page = new Pagination($total_rows, $limitstart, $limit);
