@@ -39,6 +39,14 @@ RewriteRule ^(.*)$ $1.html
 </IfModule>
 ```
 
+# Block “bad” robots
+# https://stackoverflow.com/a/10736599/1896325
+```sh
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} (AhrefsBot|Barkrowler|Bytespider) [NC]
+RewriteRule .* - [R=403,L]
+```
+
 # ???
 ```sh
 RewriteEngine On

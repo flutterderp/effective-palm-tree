@@ -9,11 +9,12 @@ if(Version::MAJOR_VERSION === 4)
 }
 
 // Use the cleaned image URL
-if(Version::MAJOR_VERSION === 4)
+$jfours = array(4,5); // lissen, variable names are hard 🙃
+if(in_array(Version::MAJOR_VERSION, $jfours))
 {
 	$item->image = HTMLHelper::cleanImageUrl($item->image);
 	$decoded     = urldecode($item->image->url);
-	$has_image   = ($item->image->url && file_exists(JPATH_BASE . '/' . urldecode($decoded))) ? true : false;
+	$has_image   = ($item->image->url && file_exists(JPATH_BASE . '/' . $decoded)) ? true : false;
 	$img_url     = $decoded;
 	$img_size    = ($has_image === true) ? getimagesize($decoded) : array();
 }
