@@ -15,7 +15,9 @@ define('JPATH_BASE', $_SERVER['DOCUMENT_ROOT'] . '');
 require_once(JPATH_BASE . '/includes/defines.php');
 require_once(JPATH_BASE . '/includes/framework.php');
 
-if(Version::MAJOR_VERSION === 4)
+$jfours = array(4,5);
+
+if(in_array(Version::MAJOR_VERSION, $jfours))
 {
 	$container = Factory::getContainer();
 	$container->alias('session', 'session.cli')
