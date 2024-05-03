@@ -9,7 +9,7 @@ if(Version::MAJOR_VERSION === 4)
 }
 
 // Use the cleaned image URL
-$jfours = array(4,5); // lissen, variable names are hard 🙃
+$jfours = array(4,5);
 if(in_array(Version::MAJOR_VERSION, $jfours))
 {
 	$item->image = HTMLHelper::cleanImageUrl($item->image);
