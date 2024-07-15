@@ -30,6 +30,9 @@ switch(true)
 	case isset($_SERVER['CLIENT_IP']) :
 		$client_ip = $_SERVER['CLIENT_IP'];
 		break;
+	case isset($_SERVER['HTTP_X_FORWARDED_FOR']) :
+		$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		break;
 	default :
 		$client_ip = $_SERVER['REMOTE_ADDR'];
 		break;
