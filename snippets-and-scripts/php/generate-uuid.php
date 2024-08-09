@@ -8,15 +8,15 @@
  */
 function generateUUID(int $length = 24)
 {
-  if(function_exists('random_bytes'))
-  {
-    return random_bytes(24);
-  }
+	if(function_exists('random_bytes'))
+	{
+		return random_bytes(24);
+	}
 
-  if(function_exists('openssl_random_pseudo_bytes'))
-  {
-    return openssl_random_pseudo_bytes(24);
-  }
+	if(function_exists('openssl_random_pseudo_bytes'))
+	{
+		return openssl_random_pseudo_bytes(24);
+	}
 
-  throw new Exception('Cannot generate a unique ID', 500);
+	throw new Exception('Cannot generate a unique ID', 500);
 }
