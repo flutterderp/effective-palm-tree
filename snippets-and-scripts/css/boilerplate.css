@@ -1,0 +1,19 @@
+:root {
+  --border-radius: 3px;
+  --color-black: #0a0a0a;
+  --color-white: #fefefe;
+  --color-darkgray: darkgray;
+  --font-serif: Georgia, 'Times New Roman', Times, serif;
+  --font-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --weight-thin: 100;
+  --weight-extralight: 200;
+  --weight-light: 300;
+  --weight-medium: 500;
+  --weight-semibold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+}
+
+::placeholder { color: var(--color-darkgray); opacity: 1; }
+::-ms-input-placeholder { color: var(--color-darkgray); opacity: 1; }
+::-webkit-input-placeholder { color: var(--color-darkgray); opacity: 1; }

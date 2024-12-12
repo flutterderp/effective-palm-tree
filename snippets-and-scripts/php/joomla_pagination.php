@@ -6,7 +6,7 @@ use Joomla\CMS\Pagination\Pagination;
 
 //Get the limit and limitstart values
 $app        = Factory::getApplication();
-$db         = Factory::getDbo();
+$db         = Factory::getContainer()->get('DatabaseDriver');
 $query      = $db->getQuery(true);
 $limit      = $app->getUserStateFromRequest('limit', 'limit', $app->get('list_limit'));
 $limitstart = $app->getUserStateFromRequest('$option.limitstart', 'limitstart', 0);
