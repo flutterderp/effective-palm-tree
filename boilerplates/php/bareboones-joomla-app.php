@@ -15,9 +15,9 @@ define('JPATH_BASE', $_SERVER['DOCUMENT_ROOT'] . '');
 require_once(JPATH_BASE . '/includes/defines.php');
 require_once(JPATH_BASE . '/includes/framework.php');
 
-$jfours = array(4,5);
+$jfours = [4,5];
 
-if(in_array(Version::MAJOR_VERSION, $jfours))
+if (in_array(Version::MAJOR_VERSION, $jfours))
 {
 	// swap session.web.site for session.web.administrator for admin apps
 	$container = Factory::getContainer();
@@ -50,7 +50,7 @@ Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
 /* Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'seoconfig');
 $app->triggerEvent('onAfterRoute', array()); */
 
-$db       = Factory::getDbo();
+$db       = Factory::getContainer()->get('DatabaseDriver');
 $session  = Factory::getSession();
 $user     = Factory::getUser();
 $utc_tz   = new DateTimeZone('UTC');
@@ -59,7 +59,7 @@ $sitename = $app->get('sitename');
 $website  = Uri::base();
 $website  = str_ireplace('/path/to/file/', '/', $website); // Get rid of unwanted path information
 
-/* if($app->isClient('site'))
+/* if ($app->isClient('site'))
 {
 	// Check for a cookie if user is not logged in
 	if ($user->get('guest'))
