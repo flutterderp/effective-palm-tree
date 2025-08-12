@@ -15,7 +15,7 @@ use Sinergi\BrowserDetector\Browser;
 require_once('path/to/browser-detector/vendor/autoload.php');
 
 $utc_tz    = new DateTimeZone('UTC');
-$today     = new DateTime(null, $utc_tz);
+$today     = new DateTime('', $utc_tz);
 $browser   = new Browser();
 $client_ip = '';
 

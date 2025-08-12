@@ -8,8 +8,10 @@ use Joomla\CMS\Pagination\Pagination;
 $app        = Factory::getApplication();
 $db         = Factory::getContainer()->get('DatabaseDriver');
 $query      = $db->getQuery(true);
+$prefix     = 'prefix_';
 $limit      = $app->getUserStateFromRequest('limit', 'limit', $app->get('list_limit'));
-$limitstart = $app->getUserStateFromRequest('$option.limitstart', 'limitstart', 0);
+// $limitstart = $app->getUserStateFromRequest('$option.limitstart', 'limitstart', 0);
+$limitstart = (int) $app->input->get($prefix . 'limitstart', 0, 'int');
 
 try
 {
@@ -36,7 +38,7 @@ catch(Exception $e)
 	$rows       = false;
 }
 
-$page = new Pagination($total_rows, $limitstart, $limit);
+$page = new Pagination($total_rows, $limitstart, $limit, $prefix);
 //$page->setAdditionalUrlParam('searchword', $search);
 
 //Display pagination where desired
