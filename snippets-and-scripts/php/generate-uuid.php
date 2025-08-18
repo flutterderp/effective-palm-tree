@@ -20,3 +20,12 @@ function generateUUID(int $length = 24)
 
 	throw new Exception('Cannot generate a unique ID', 500);
 }
+
+/**
+ * Generate a UUID using the Keygen class in the same directory as this example file
+ */
+require_once(__DIR__ . '/Keygen.php');
+
+$keygen = new Keygen();
+
+echo $keygen->generateUUID4();

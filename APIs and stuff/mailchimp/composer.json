@@ -1,0 +1,7 @@
+{
+  "require": {
+    "mailchimp/marketing": "*",
+    "psr/log": "*",
+    "laminas/laminas-httphandlerrunner": "*"
+  }
+}
