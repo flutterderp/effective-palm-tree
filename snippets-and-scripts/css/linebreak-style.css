@@ -1,0 +1,2 @@
+h1 > br { content: '\00A0'; display: inline-flex; }
+h1 > br::after { content: '\00A0'; display: block; height: auto; width: auto; }
