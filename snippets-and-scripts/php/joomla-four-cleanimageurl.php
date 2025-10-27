@@ -9,7 +9,7 @@ if (Version::MAJOR_VERSION === 4)
 }
 
 // Use the cleaned image URL
-$jfours = [4,5];
+$jfours = [4,5,6];
 
 if (in_array(Version::MAJOR_VERSION, $jfours))
 {
