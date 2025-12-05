@@ -1,0 +1,8 @@
+
+# OpenAI search bot
+User-agent: OAI-SearchBot
+Disallow: /
+
+# ChatGPT bot
+User-agent: GPTBot
+Disallow: /

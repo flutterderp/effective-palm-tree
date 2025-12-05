@@ -5,6 +5,17 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^.*(jpg|png)$ /path/to/placeholder.svg [L,R=302]
 ```
 
+# Force 410 Gone for specific user agent(s)
+```sh
+ErrorDocument 410 /410-gone.html
+
+<If "%{HTTP_USER_AGENT} =~ /crawl|GPTBot.*|OAI-SearchBot.*/i">
+  RewriteEngine On
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteRule ^ - [G]
+</If>
+```
+
 # Useful headers
 
 * [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
