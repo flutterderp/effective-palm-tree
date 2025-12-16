@@ -15,31 +15,31 @@ define('JPATH_BASE', $_SERVER['DOCUMENT_ROOT'] . '');
 require_once(JPATH_BASE . '/includes/defines.php');
 require_once(JPATH_BASE . '/includes/framework.php');
 
-$jfours = [4,5];
+$jfours = [4,5,6];
 
 if (in_array(Version::MAJOR_VERSION, $jfours))
 {
-	// swap session.web.site for session.web.administrator for admin apps
-	$container = Factory::getContainer();
-	$container->alias('session.web', 'session.web.site')
-		->alias('session', 'session.web.site')
-		->alias('JSession', 'session.web.site')
-		->alias(\Joomla\CMS\Session\Session::class, 'session.web.site')
-		->alias(\Joomla\Session\Session::class, 'session.web.site')
-		->alias(\Joomla\Session\SessionInterface::class, 'session.web.site');
+    // swap session.web.site for session.web.administrator for admin apps
+    $container = Factory::getContainer();
+    $container->alias('session.web', 'session.web.site')
+        ->alias('session', 'session.web.site')
+        ->alias('JSession', 'session.web.site')
+        ->alias(\Joomla\CMS\Session\Session::class, 'session.web.site')
+        ->alias(\Joomla\Session\Session::class, 'session.web.site')
+        ->alias(\Joomla\Session\SessionInterface::class, 'session.web.site');
 
-	$app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
-	// $app = $container->get(\Joomla\CMS\Application\AdministratorApplication::class);
-	$app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
-	$app->loadLanguage(); /* allows modules to render */
+    $app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
+    // $app = $container->get(\Joomla\CMS\Application\AdministratorApplication::class);
+    $app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
+    $app->loadLanguage(); /* allows modules to render */
 
-	// Set the application as global app
-	Factory::$application = $app;
+    // Set the application as global app
+    Factory::$application = $app;
 }
 else
 {
-	$app = Factory::getApplication('site');
-	$app->initialise();
+    $app = Factory::getApplication('site');
+    $app->initialise();
 }
 
 /* Joomla\CMS\Plugin\PluginHelper::importPlugin('authentication');
@@ -61,24 +61,24 @@ $website  = str_ireplace('/path/to/file/', '/', $website); // Get rid of unwante
 
 /* if ($app->isClient('site'))
 {
-	// Check for a cookie if user is not logged in
-	if ($user->get('guest'))
-	{
-		$cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
+    // Check for a cookie if user is not logged in
+    if ($user->get('guest'))
+    {
+        $cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
 
-		// Try with old cookieName (pre 3.6.0) if not found
-		if (!$app->input->cookie->get($cookieName))
-		{
-			$cookieName = JUserHelper::getShortHashedUserAgent();
-		}
+        // Try with old cookieName (pre 3.6.0) if not found
+        if (!$app->input->cookie->get($cookieName))
+        {
+            $cookieName = JUserHelper::getShortHashedUserAgent();
+        }
 
-		// Check for the cookie
-		if ($app->input->cookie->get($cookieName))
-		{
-			$app->login(array('username' => ''), array('return' => Uri::current(), 'silent' => true));
-			$app->triggerEvent('onUserAfterLogin', array('responseType' => 'Cookie'));
-		}
-	}
+        // Check for the cookie
+        if ($app->input->cookie->get($cookieName))
+        {
+            $app->login(array('username' => ''), array('return' => Uri::current(), 'silent' => true));
+            $app->triggerEvent('onUserAfterLogin', array('responseType' => 'Cookie'));
+        }
+    }
 } */
 
 /*$options = array();
