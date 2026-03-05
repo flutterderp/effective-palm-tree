@@ -14,6 +14,7 @@
         --color-black: #0a0a0a;
         --color-white: #fefefe;
         --color-darkgray: darkgray;
+        --color-lightgrey: #f5f5f5;
         --font-serif: Georgia, 'Times New Roman', Times, serif;
         --font-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         --weight-thin: 100;
@@ -25,24 +26,35 @@
         --weight-black: 900;
       }
       * { margin: 0; padding: 0; }
-      html, body { font-family: 'Google Sans Flex', var(--font-sans-serif); font-size: 100%; line-height: normal; }
+      html, body {
+        background: var(--color-white);
+        color: var(--color-black);
+        font-family: 'Google Sans Flex', var(--font-sans-serif); font-size: 100%; line-height: normal;
+      }
 
+      a { text-decoration: underline; }
+      a:is(:focus, :hover) { text-decoration: none; }
+      h1 { font-size: 32px; margin: 0 auto 16px; }
+      p { margin: 16px auto; }
       main { margin: 4px auto; padding: 0 8px; max-width: 75rem; }
-
-      h1 { font-size: 32px; margin: 0 auto 10px; }
 
       details {
         font-family: 'EB Garamond', var(--font-serif);
         font-size: 18px;
-        margin: 5px auto;
+        font-weight: normal;
+        margin: 0;
         transition: all 0.3s;
       }
-      details::details-content { transition: all 0.4s ease-in-out; }
-      details[open]::details-content { padding: 10px 0; }
+      details:nth-of-type(odd) > summary { background: var(--color-lightgrey); }
+      details::details-content { transition: all 0.4s ease-in-out, padding 0s; }
+      details[open]::details-content {
+        margin: 4px auto 0;
+        padding: 10px 6px;
+      }
       summary {
         align-items: center;
         border: 0 dotted #0a0a0a;
-        border-bottom-width: 1px;
+        /* border-bottom-width: 1px; */
         cursor: pointer;
         display: flex;
         flex-wrap: nowrap;
@@ -51,8 +63,8 @@
         font-weight: var(--weight-light);
         gap: 14px;
         justify-content: space-between;
-        margin: 0 auto 4px;
-        padding: 0 20px 4px 0;
+        margin: 0;
+        padding: 6px 20px 6px 6px;
         width: 100%;
       }
       summary::marker { content: none; }
@@ -69,8 +81,9 @@
   <body>
     <main role="main">
       <h1>Details Test</h1>
+      <p>I'm basically just playing around with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details" target="_blank" rel="noopener noreferrer"><code>details</code> disclosue element</a> in this file.</p>
 
-      <details name="faq">
+      <details name="faq" open>
         <summary>Etiam tempus tincidunt metus, imperdiet finibus tellus ultrices non. In neque metus.</summary>
         Sed sit amet euismod dolor, eget blandit sapien. Donec aliquet dui eu dui pharetra, vitae cursus libero suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a gravida risus. Cras id ex et nunc malesuada sollicitudin. Integer volutpat consequat odio a volutpat. Ut non posuere tellus. Etiam non finibus justo. In congue et turpis et scelerisque. Donec scelerisque venenatis felis eu dapibus. Nulla eu eleifend est, non eleifend odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur ut erat sit amet quam auctor iaculis. Fusce ac gravida elit. Mauris semper purus nec imperdiet iaculis. Proin lobortis ac sem non ultricies.
       </details>
