@@ -52,7 +52,7 @@ $app->triggerEvent('onAfterRoute', array()); */
 
 $db       = Factory::getContainer()->get('DatabaseDriver');
 $session  = Factory::getSession();
-$user     = Factory::getUser();
+$user     = $app->getIdentity() ?: Factory::getUser();
 $utc_tz   = new DateTimeZone('UTC');
 $today    = new DateTime('', $utc_tz);
 $sitename = $app->get('sitename');

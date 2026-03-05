@@ -17,60 +17,60 @@ require_once(JPATH_BASE . '/includes/framework.php');
 
 $jfours = [4,5,6];
 
-if(in_array(Version::MAJOR_VERSION, $jfours))
+if (in_array(Version::MAJOR_VERSION, $jfours))
 {
-	$container = Factory::getContainer();
-	$container->alias('session', 'session.cli')
-		->alias('JSession', 'session.cli')
-		->alias(\Joomla\CMS\Session\Session::class, 'session.cli')
-		->alias(\Joomla\Session\Session::class, 'session.cli')
-		->alias(\Joomla\Session\SessionInterface::class, 'session.cli');
+    $container = Factory::getContainer();
+    $container->alias('session', 'session.cli')
+        ->alias('JSession', 'session.cli')
+        ->alias(\Joomla\CMS\Session\Session::class, 'session.cli')
+        ->alias(\Joomla\Session\Session::class, 'session.cli')
+        ->alias(\Joomla\Session\SessionInterface::class, 'session.cli');
 
-	$app = $container->get(\Joomla\Console\Application::class);
-	$app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
-	// $app->loadLanguage(); /* allows modules to render */
+    $app = $container->get(\Joomla\Console\Application::class);
+    $app->createExtensionNamespaceMap(); // https://joomla.stackexchange.com/a/32146/41
+    // $app->loadLanguage(); /* allows modules to render */
 
-	// Set the application as global app
-	Factory::$application = $app;
+    // Set the application as global app
+    Factory::$application = $app;
 }
 else
 {
-	$app = Factory::getApplication('site');
-	$app->initialise();
+    $app = Factory::getApplication('site');
+    $app->initialise();
 }
 
 /* Joomla\CMS\Plugin\PluginHelper::importPlugin('authentication');
 Joomla\CMS\Plugin\PluginHelper::importPlugin('user');
 Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
-$db       = Factory::getDbo();
+$db       = Factory::getContainer()->get('DatabaseDriver');
 $session  = Factory::getSession();
-$user     = Factory::getUser();
+$user     = $app->getIdentity() ?: Factory::getUser();
 $utc_tz   = new DateTimeZone('UTC');
 $today    = new DateTime('', $utc_tz);
 $sitename = $app->get('sitename');
 $website  = Uri::base();
 $website  = str_ireplace('/path/to/file/', '/', $website); // Get rid of unwanted path information
 
-/* if($app->isClient('site'))
+/* if ($app->isClient('site'))
 {
-	// Check for a cookie if user is not logged in
-	if ($user->get('guest'))
-	{
-		$cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
+    // Check for a cookie if user is not logged in
+    if ($user->get('guest'))
+    {
+        $cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
 
-		// Try with old cookieName (pre 3.6.0) if not found
-		if (!$app->input->cookie->get($cookieName))
-		{
-			$cookieName = JUserHelper::getShortHashedUserAgent();
-		}
+        // Try with old cookieName (pre 3.6.0) if not found
+        if (!$app->input->cookie->get($cookieName))
+        {
+            $cookieName = JUserHelper::getShortHashedUserAgent();
+        }
 
-		// Check for the cookie
-		if ($app->input->cookie->get($cookieName))
-		{
-			$app->login(array('username' => ''), array('return' => Uri::current(), 'silent' => true));
-			$app->triggerEvent('onUserAfterLogin', array('responseType' => 'Cookie'));
-		}
-	}
+        // Check for the cookie
+        if ($app->input->cookie->get($cookieName))
+        {
+            $app->login(array('username' => ''), array('return' => Uri::current(), 'silent' => true));
+            $app->triggerEvent('onUserAfterLogin', array('responseType' => 'Cookie'));
+        }
+    }
 } */
 
 /*$options = array();

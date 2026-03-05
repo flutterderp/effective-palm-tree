@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --border-radius: 3px;
+        --color-black: #0a0a0a;
+        --color-white: #fefefe;
+        --color-darkgray: darkgray;
+        --font-serif: Georgia, 'Times New Roman', Times, serif;
+        --font-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --weight-thin: 100;
+        --weight-extralight: 200;
+        --weight-light: 300;
+        --weight-medium: 500;
+        --weight-semibold: 700;
+        --weight-extrabold: 800;
+        --weight-black: 900;
+      }
+      * { margin: 0; padding: 0; }
+      html, body { font-family: 'Google Sans Flex', var(--font-sans-serif); font-size: 100%; line-height: normal; }
+
+      main { margin: 4px auto; padding: 0 8px; max-width: 75rem; }
+
+      h1 { font-size: 32px; margin: 0 auto 10px; }
+
+      details {
+        font-family: 'EB Garamond', var(--font-serif);
+        font-size: 18px;
+        margin: 5px auto;
+        transition: all 0.3s;
+      }
+      details::details-content { transition: all 0.4s ease-in-out; }
+      details[open]::details-content { padding: 10px 0; }
+      summary {
+        align-items: center;
+        border: 0 dotted #0a0a0a;
+        border-bottom-width: 1px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: nowrap;
+        font-family: 'Sour Gummy', cursive;
+        font-size: 20px;
+        font-weight: var(--weight-light);
+        gap: 14px;
+        justify-content: space-between;
+        margin: 0 auto 4px;
+        padding: 0 20px 4px 0;
+        width: 100%;
+      }
+      summary::marker { content: none; }
+      summary::after {
+        content: '+';
+        font-family: 'Work Sans', var(--font-sans-serif);
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+      details[open] summary::after { content: '-'; }
+    </style>
+  </head>
+  <body>
+    <main role="main">
+      <h1>Details Test</h1>
+
+      <details name="faq">
+        <summary>Etiam tempus tincidunt metus, imperdiet finibus tellus ultrices non. In neque metus.</summary>
+        Sed sit amet euismod dolor, eget blandit sapien. Donec aliquet dui eu dui pharetra, vitae cursus libero suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer a gravida risus. Cras id ex et nunc malesuada sollicitudin. Integer volutpat consequat odio a volutpat. Ut non posuere tellus. Etiam non finibus justo. In congue et turpis et scelerisque. Donec scelerisque venenatis felis eu dapibus. Nulla eu eleifend est, non eleifend odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur ut erat sit amet quam auctor iaculis. Fusce ac gravida elit. Mauris semper purus nec imperdiet iaculis. Proin lobortis ac sem non ultricies.
+      </details>
+      <details name="faq">
+        <summary>Morbi aliquam nulla sollicitudin, varius nunc ac, maximus nulla. Maecenas rutrum aliquet.</summary>
+        Sed convallis eu turpis ac maximus. Pellentesque in arcu eu sapien fermentum porta. In lobortis tortor quis posuere scelerisque. Pellentesque egestas, diam a sollicitudin malesuada, nisi sapien laoreet urna, eu blandit neque purus eget ex. Cras faucibus nisl eros, et facilisis libero egestas id. Suspendisse magna magna, consectetur eu gravida sit amet, dignissim non purus. Duis vestibulum nibh augue, sit amet eleifend leo fringilla aliquam. Aliquam pellentesque sem orci, accumsan imperdiet lorem scelerisque malesuada. Cras a commodo nunc. Cras vel ipsum purus. Nunc ac tincidunt eros, sed porta massa.
+      </details>
+      <details name="faq">
+        <summary>Maecenas sed rhoncus diam, nec facilisis urna. Phasellus porta tellus et commodo.</summary>
+        Ut luctus iaculis vehicula. Curabitur vestibulum mattis massa at commodo. Vivamus ac dignissim ante. Suspendisse consequat nec lacus vitae maximus. Nam laoreet, eros ut laoreet gravida, eros est consectetur ex, sit amet imperdiet magna nisi ut justo. Ut dapibus suscipit rutrum. Fusce dignissim pretium neque, sed vehicula ante pulvinar id. Vestibulum semper sem nunc, sed sagittis nulla iaculis quis. Sed placerat neque at metus condimentum fringilla.
+      </details>
+    </main>
+  </body>
+</html>
