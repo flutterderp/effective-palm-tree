@@ -16,14 +16,14 @@ $limitstart = (int) $app->input->get($prefix . 'limitstart', 0, 'int');
 try
 {
 	//Get a total count and instantiate Pagination
-	$query->select('COUNT(*)')->from( $db->qn('#__table_name'))->where('something = 1');
+	$query->select('COUNT(*)')->from( $db->quoteName('#__table_name'))->where('something = 1');
 
 	$db->setQuery($query);
 	$total_rows = (int) $db->loadResult();
 
 	// Use $limitstart and $limit in the query that actually fetches your items
 	$query->clear();
-	$query->select('*')->from($db->qn('#__table_name'))->where('something = 1');
+	$query->select('*')->from($db->quoteName('#__table_name'))->where('something = 1');
 	// $query->setLimit($limit, $limitstart);
 
 	$db->setQuery($query, $limitstart, $limit);
@@ -43,6 +43,7 @@ $page = new Pagination($total_rows, $limitstart, $limit, $prefix);
 
 //Display pagination where desired
 /* <p>Page: <?php echo '' . $page->pagesCurrent . ' / ' . $page->pagesTotal; ?><br><?php echo $page->getLimitBox(); ?></p> */
-echo $page->getResultsCounter();
-echo $page->getPaginationLinks('joomla.pagination.links', array('showLimitBox' => false));
+// echo $page->getResultsCounter();
+echo $page->getPagesCounter();
+echo $page->getPagesLinks('joomla.pagination.links', array('showLimitBox' => false));
 // echo $page->getPaginationLinks('joomla.pagination.list');

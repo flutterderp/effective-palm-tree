@@ -1,8 +1,48 @@
 
-# OpenAI search bot
-User-agent: OAI-SearchBot
+# Disallow file types
+User-agent: *
+Disallow: /*.pdf
+
+# AhrefsBot
+User-agent: AhrefsBot
+Disallow: /
+
+# Amazon AI crawler
+User-agent: Amazonbot
+Disallow: /
+
+# Applebot
+User-agent: Applebot
+Disallow: /
+
+# Bingbot
+User-agent: bingbot
 Disallow: /
 
 # ChatGPT bot
 User-agent: GPTBot
+Disallow: /
+
+# DotBot
+# https://moz.com/help/moz-procedures/crawlers/dotbot
+User-agent: DotBot
+Disallow: /
+
+# FacebookExternalHit
+User-agent: facebookexternalhit
+Disallow: /
+
+# Meta AI crawler(s)
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# OpenAI search bot
+User-agent: OAI-SearchBot
+Disallow: /
+
+# PetalBot
+User-agent: PetalBot
 Disallow: /

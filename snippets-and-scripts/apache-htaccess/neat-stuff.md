@@ -8,12 +8,21 @@ RewriteRule ^.*(jpg|png)$ /path/to/placeholder.svg [L,R=302]
 # Force 410 Gone for specific user agent(s)
 ```sh
 ErrorDocument 410 /410-gone.html
+ErrorDocument 503 /503-unavailable.html
 
-<If "%{HTTP_USER_AGENT} =~ /crawl|GPTBot.*|OAI-SearchBot.*/i">
+# <If "%{HTTP_USER_AGENT} =~ /crawl|Amazonbot.*|bingbot.*|ChatGPT-User.*|GPTBot.*|meta-externalagent.*|OAI-SearchBot.*|PetalBot.*/i">
+<If "%{HTTP_USER_AGENT} =~ /crawl|Amazonbot.*|ChatGPT-User.*|GPTBot.*|meta-externalagent.*|OAI-SearchBot.*|PetalBot.*/i">
   RewriteEngine On
   RewriteCond %{ENV:REDIRECT_STATUS} ^$
   RewriteRule ^ - [G]
 </If>
+```
+
+# Set `noindex` robots tag for PDF files
+```sh
+<Files *.pdf>
+  Header set X-Robots-Tag "noindex"
+</Files>
 ```
 
 # Useful headers
