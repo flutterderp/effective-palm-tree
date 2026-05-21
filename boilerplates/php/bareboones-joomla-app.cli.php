@@ -17,8 +17,7 @@ require_once(JPATH_BASE . '/includes/framework.php');
 
 $jfours = [4,5,6];
 
-if (in_array(Version::MAJOR_VERSION, $jfours))
-{
+if (in_array(Version::MAJOR_VERSION, $jfours)) {
     $container = Factory::getContainer();
     $container->alias('session', 'session.cli')
         ->alias('JSession', 'session.cli')
@@ -43,10 +42,10 @@ else
 Joomla\CMS\Plugin\PluginHelper::importPlugin('user');
 Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
 $db       = Factory::getContainer()->get('DatabaseDriver');
-$session  = Factory::getSession();
+$session  = $app->getSession();
 $user     = $app->getIdentity() ?: Factory::getUser();
-$utc_tz   = new DateTimeZone('UTC');
-$today    = new DateTime('', $utc_tz);
+$utc_tz   = new \DateTimeZone('UTC');
+$today    = new \DateTime('', $utc_tz);
 $sitename = $app->get('sitename');
 $website  = Uri::base();
 $website  = str_ireplace('/path/to/file/', '/', $website); // Get rid of unwanted path information

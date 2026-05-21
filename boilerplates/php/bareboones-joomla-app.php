@@ -17,8 +17,7 @@ require_once(JPATH_BASE . '/includes/framework.php');
 
 $jfours = [4,5,6];
 
-if (in_array(Version::MAJOR_VERSION, $jfours))
-{
+if (in_array(Version::MAJOR_VERSION, $jfours)) {
     // swap session.web.site for session.web.administrator for admin apps
     $container = Factory::getContainer();
     $container->alias('session.web', 'session.web.site')
@@ -35,9 +34,7 @@ if (in_array(Version::MAJOR_VERSION, $jfours))
 
     // Set the application as global app
     Factory::$application = $app;
-}
-else
-{
+} else {
     $app = Factory::getApplication('site');
     $app->initialise();
 }
@@ -51,30 +48,26 @@ Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
 $app->triggerEvent('onAfterRoute', array()); */
 
 $db       = Factory::getContainer()->get('DatabaseDriver');
-$session  = Factory::getSession();
+$session  = $app->getSession();
 $user     = $app->getIdentity() ?: Factory::getUser();
-$utc_tz   = new DateTimeZone('UTC');
-$today    = new DateTime('', $utc_tz);
+$utc_tz   = new \DateTimeZone('UTC');
+$today    = new \DateTime('', $utc_tz);
 $sitename = $app->get('sitename');
-$website  = Uri::base();
+$website  = Uri::root();
 $website  = str_ireplace('/path/to/file/', '/', $website); // Get rid of unwanted path information
 
-/* if ($app->isClient('site'))
-{
+/* if ($app->isClient('site')) {
     // Check for a cookie if user is not logged in
-    if ($user->get('guest'))
-    {
+    if ($user->get('guest')) {
         $cookieName = 'joomla_remember_me_' . JUserHelper::getShortHashedUserAgent();
 
         // Try with old cookieName (pre 3.6.0) if not found
-        if (!$app->input->cookie->get($cookieName))
-        {
+        if (!$app->input->cookie->get($cookieName)) {
             $cookieName = JUserHelper::getShortHashedUserAgent();
         }
 
         // Check for the cookie
-        if ($app->input->cookie->get($cookieName))
-        {
+        if ($app->input->cookie->get($cookieName)) {
             $app->login(array('username' => ''), array('return' => Uri::current(), 'silent' => true));
             $app->triggerEvent('onUserAfterLogin', array('responseType' => 'Cookie'));
         }
