@@ -1,5 +1,6 @@
 <?php
 // Basic app setup using Joomla 3.x CMS libraries
+use Joomla\CMS\Application\SiteApplication;
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Filesystem\Path;
@@ -34,6 +35,9 @@ if (in_array(Version::MAJOR_VERSION, $jfours)) {
 
     // Set the application as global app
     Factory::$application = $app;
+
+// Load the factory document in case we need to render modules
+$app->loadDocument();
 } else {
     $app = Factory::getApplication('site');
     $app->initialise();
@@ -48,6 +52,8 @@ Joomla\CMS\Plugin\PluginHelper::importPlugin('system', 'remember'); */
 $app->triggerEvent('onAfterRoute', array()); */
 
 $db       = Factory::getContainer()->get('DatabaseDriver');
+$doc      = $app->getDocument();
+// $doc      = $container->get(Joomla\CMS\Document\FactoryInterface::class)->createDocument(); // Joomla\CMS\Document\HtmlDocument
 $session  = $app->getSession();
 $user     = $app->getIdentity() ?: Factory::getUser();
 $utc_tz   = new \DateTimeZone('UTC');
