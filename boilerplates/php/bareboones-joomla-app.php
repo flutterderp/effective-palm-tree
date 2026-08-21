@@ -36,8 +36,8 @@ if (in_array(Version::MAJOR_VERSION, $jfours)) {
     // Set the application as global app
     Factory::$application = $app;
 
-// Load the factory document in case we need to render modules
-$app->loadDocument();
+    // Load the factory document in case we need to render modules
+    $app->loadDocument();
 } else {
     $app = Factory::getApplication('site');
     $app->initialise();
